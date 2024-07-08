@@ -19,14 +19,6 @@ export default function App() {
     const response = await fetch(`https://api.github.com/repos/${repoName}`);
     const jsonData = await response.json();
 
-    // const jsonData = {
-    //   forks_count: 2346,
-    //   full_name: "ziglang/zig",
-    //   stargazers_count: 32122,
-    //   trees_url: "https://api.github.com/repos/ziglang/zig/git/trees{/sha}",
-    // };
-
-    console.log(jsonData);
     setData(jsonData);
 
     const tree_url = jsonData.trees_url.slice(0, -6) + "/" + jsonData.default_branch;
